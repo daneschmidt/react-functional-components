@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logoSvg from './logo.svg';
 
 import {
     Container,
@@ -10,15 +9,13 @@ import './application.css';
 
 import NewEmployee from '../NewEmployee/NewEmployee';
 import EmployeesList from '../EmployeesList/EmployeesList';
+import AppBanner from '../AppBanner/AppBanner';
 
 class App extends Component {
     render() {
         return (
             <div>
-                <header className="appBanner">
-                    <img className="appLogo" src={logoSvg} alt="React Logo"/>
-                    <h1>Functional Components</h1>
-                </header>
+                <AppBanner hdg="Functional Components" />
                 
                 <Container>
                     <Grid container spacing={3}>
