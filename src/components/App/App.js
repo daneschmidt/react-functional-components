@@ -6,6 +6,7 @@ import { Container } from '@material-ui/core';
 import './application.css';
 
 import NewEmployee from '../NewEmployee/NewEmployee';
+import EmployeesList from '../EmployeesList/EmployeesList';
 
 class App extends Component {
     render() {
@@ -17,7 +18,11 @@ class App extends Component {
                 </header>
                 
                 <Container>
-                    <NewEmployee />
+                    <div className="vr">
+                        <NewEmployee />
+                    </div>
+
+                    <EmployeesList />
                 </Container>
 
             </div>
