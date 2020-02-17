@@ -26,7 +26,13 @@ class NewEmployee extends Component {
             payload: {
                 ...this.state
             }
-        })
+        });
+
+        this.setState({
+            firstName: '',
+            lastName: '',
+            position: '',
+        });
     }
 
     render() {
@@ -39,6 +45,7 @@ class NewEmployee extends Component {
                         type="text"
                         label="First Name"
                         fullWidth
+                        value={this.state.firstName}
                         onChange={this.changeField('firstName')}
                     />
                 </div>
@@ -47,6 +54,7 @@ class NewEmployee extends Component {
                         type="text"
                         label="Last Name"
                         fullWidth
+                        value={this.state.lastName}
                         onChange={this.changeField('lastName')}
                     />
                 </div>
@@ -55,6 +63,7 @@ class NewEmployee extends Component {
                         type="text"
                         label="Position"
                         fullWidth
+                        value={this.state.position}
                         onChange={this.changeField('position')}
                     />
                 </div>
