@@ -1,0 +1,19 @@
+.appBanner {
+    padding: 20px 10px;
+    background: #15448b;
+    color: #ffffff;
+}
+
+.appBanner > * {
+    display: inline-block;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.appBanner > * + * {
+    margin-left: 10px;
+}
+
+.appLogo {
+    width: 70px
+}
