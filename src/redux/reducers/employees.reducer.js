@@ -1,13 +1,19 @@
 function genNewId(employees) {
     let greatestId = 0;
 
-    employees.forEach((employeeItem) => {
-        if (employeeItem.id > greatestId) {
-            greatestId = employeeItem.Id;
-        }
-    });
+    console.log('genNewId:', employees);
 
-    return greatestId++;
+    for(let employeeItem of employees) {
+        console.log('genNewId:', employeeItem);
+        if (employeeItem.id != null && employeeItem.id > greatestId) {
+            greatestId = employeeItem.id;
+        }
+    };
+    console.log('genNewId:', greatestId);
+
+    greatestId += 1;
+
+    return greatestId;
 }
 
 const employeesReducer = (state = [], action) => {
