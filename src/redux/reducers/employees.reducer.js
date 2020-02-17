@@ -19,6 +19,7 @@ const employeesReducer = (state = [], action) => {
                 ...state,
                 {
                     ...action.payload,
+                    fullName: `${action.payload.firstName} ${action.payload.lastName}`,
                     id: genNewId(state),
                 }
             ];
