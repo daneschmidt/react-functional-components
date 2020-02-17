@@ -13,13 +13,13 @@ import configs from '../../constants/configs';
 class EmployeeItem extends Component {
     removeEmployee = (event) => {
         Swal.fire({
-        title: 'Are you sure?',
-        text: `${this.props.employeeInfo.fullName} will be permanently removed.`,
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+            title: 'Are you sure?',
+            text: `${this.props.employeeInfo.fullName} will be permanently removed.`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#15448b',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.value) {
 
