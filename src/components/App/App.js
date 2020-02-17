@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import logoSvg from './logo.svg';
 
+import { Container } from '@material-ui/core';
+
 import './application.css';
 
-class Template extends Component {
+import NewEmployee from '../NewEmployee/NewEmployee';
+
+class App extends Component {
     render() {
         return (
             <div>
@@ -12,10 +16,13 @@ class Template extends Component {
                     <h1>Functional Components</h1>
                 </header>
                 
+                <Container>
+                    <NewEmployee />
+                </Container>
 
             </div>
         );
     }
 }
 
-export default Template;
+export default App;
