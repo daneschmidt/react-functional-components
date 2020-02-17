@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import mapStoreToProps from '../../redux/mapStoreToProps';
 import {
     TextField,
     Button,
@@ -16,6 +18,15 @@ class NewEmployee extends Component {
         this.setState({
             [fieldKey]: event.target.value
         });
+    }
+
+    saveNewEmployee = (event) => {
+        this.props.dispatch({
+            type: 'ADD_EMPLOYEE',
+            payload: {
+                ...this.state
+            }
+        })
     }
 
     render() {
@@ -41,10 +52,16 @@ class NewEmployee extends Component {
                     />
                 </div>
 
-                <Button variant="contained" color="primary">Save</Button>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={this.saveNewEmployee}
+                >
+                    Save
+                </Button>
             </Paper>
         );
     }
 }
 
-export default NewEmployee;
+export default connect(mapStoreToProps)(NewEmployee);
