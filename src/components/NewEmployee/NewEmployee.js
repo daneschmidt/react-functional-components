@@ -38,16 +38,23 @@ class NewEmployee extends Component {
                     <TextField
                         type="text"
                         label="First Name"
+                        fullWidth
                         onChange={this.changeField('firstName')}
                     />
+                </div>
+                <div className="vr">
                     <TextField
                         type="text"
                         label="Last Name"
+                        fullWidth
                         onChange={this.changeField('lastName')}
                     />
+                </div>
+                <div className="vr">
                     <TextField
                         type="text"
                         label="Position"
+                        fullWidth
                         onChange={this.changeField('position')}
                     />
                 </div>
@@ -55,6 +62,7 @@ class NewEmployee extends Component {
                 <Button
                     variant="contained"
                     color="primary"
+                    fullWidth
                     onClick={this.saveNewEmployee}
                 >
                     Save

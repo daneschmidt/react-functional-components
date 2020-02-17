@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import logoSvg from './logo.svg';
 
-import { Container } from '@material-ui/core';
+import {
+    Container,
+    Grid,
+} from '@material-ui/core';
 
 import './application.css';
 
@@ -18,11 +21,14 @@ class App extends Component {
                 </header>
                 
                 <Container>
-                    <div className="vr">
-                        <NewEmployee />
-                    </div>
-
-                    <EmployeesList />
+                    <Grid container spacing={3}>
+                        <Grid item xs={3}>
+                            <NewEmployee />
+                        </Grid>
+                        <Grid item xs={9}>
+                            <EmployeesList />
+                        </Grid>
+                    </Grid>
                 </Container>
 
             </div>

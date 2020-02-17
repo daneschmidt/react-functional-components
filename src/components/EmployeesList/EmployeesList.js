@@ -34,22 +34,30 @@ class EmployeesList extends Component {
             );
         });
 
+        let employeesTable = (
+            <TableContainer>
+                <Table aria-label="simple table">
+                    <TableHead>
+                        <TableRow>
+                            {tableHeadings}
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {employeesRows}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        );
+
+        if (this.props.store.employeesReducer.length === 0) {
+            employeesTable = <p>There are currently no Employees here. You should probably higher someone.</p>;
+        }
+
         return (
             <Paper className="paperPanel" elevation={3}>
                 <h2>Employees</h2>
                 
-                <TableContainer>
-                    <Table aria-label="simple table">
-                        <TableHead>
-                            <TableRow>
-                                {tableHeadings}
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {employeesRows}
-                        </TableBody>
-                    </Table>
-                </TableContainer>
+                {employeesTable}
             </Paper>
         );
     }
