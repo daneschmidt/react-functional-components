@@ -15,7 +15,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                <AppBanner hdg="Functional Components" />
+                <AppBanner hdg="Functional Components" subHdg="Yay Subs!!!"/>
                 
                 <Container>
                     <Grid container spacing={3}>
