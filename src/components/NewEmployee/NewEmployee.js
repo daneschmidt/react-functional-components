@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import {
@@ -7,78 +7,106 @@ import {
     Paper,
 } from '@material-ui/core';
 
-class NewEmployee extends Component {
-    state = {
-        firstName: '',
-        lastName: '',
-        position: '',
-    };
+function NewEmployee(props) {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [position, setPosition] = useState('');
+    // const [newEmployee, setNewEmployee] = useState({firstName: '', lastName: '', position: '' });
+
+    // const state = {
+    //     firstName: '',
+    //     lastName: '',
+    //     position: '',
+    // };
     
-    changeField = (fieldKey) => (event) => {
-        this.setState({
-            [fieldKey]: event.target.value
-        });
+    const changeField = (fieldKey) => (event) => {
+        // this.setState({
+        //     [fieldKey]: event.target.value
+        // });
+
+        if (fieldKey === 'firstName') {
+            setFirstName(event.target.value);
+        } else if (fieldKey === 'lastName') {
+            setLastName(event.target.value);
+        } else if (fieldKey === 'position') {
+            setPosition(event.target.value);
+        }
+
+        // setNewEmployee({
+        //     [fieldKey]: event.target.value,
+        // })
     }
 
-    saveNewEmployee = (event) => {
-        this.props.dispatch({
+    const saveNewEmployee = (event) => {
+        // this.props.dispatch({
+        //     type: 'ADD_EMPLOYEE',
+        //     payload: {
+        //         ...this.state
+        //     }
+        // });
+
+        props.dispatch({
             type: 'ADD_EMPLOYEE',
             payload: {
-                ...this.state
+                firstName,
+                lastName,
+                position
             }
         });
 
-        this.setState({
-            firstName: '',
-            lastName: '',
-            position: '',
-        });
+        // this.setState({
+        //     firstName: '',
+        //     lastName: '',
+        //     position: '',
+        // });
+
+        setFirstName('');
+        setLastName('');
+        setPosition('');
     }
 
-    render() {
-        return (
-            <Paper className="paperPanel" elevation={3}>
-                <h2>Add New Employee</h2>
+    return (
+        <Paper className="paperPanel" elevation={3}>
+            <h2>Add New Employee</h2>
 
-                <div className="vr">
-                    <TextField
-                        type="text"
-                        label="First Name"
-                        fullWidth
-                        value={this.state.firstName}
-                        onChange={this.changeField('firstName')}
-                    />
-                </div>
-                <div className="vr">
-                    <TextField
-                        type="text"
-                        label="Last Name"
-                        fullWidth
-                        value={this.state.lastName}
-                        onChange={this.changeField('lastName')}
-                    />
-                </div>
-                <div className="vr">
-                    <TextField
-                        type="text"
-                        label="Position"
-                        fullWidth
-                        value={this.state.position}
-                        onChange={this.changeField('position')}
-                    />
-                </div>
-
-                <Button
-                    variant="contained"
-                    color="primary"
+            <div className="vr">
+                <TextField
+                    type="text"
+                    label="First Name"
                     fullWidth
-                    onClick={this.saveNewEmployee}
-                >
-                    Save
-                </Button>
-            </Paper>
-        );
-    }
+                    value={firstName}
+                    onChange={changeField('firstName')}
+                />
+            </div>
+            <div className="vr">
+                <TextField
+                    type="text"
+                    label="Last Name"
+                    fullWidth
+                    value={lastName}
+                    onChange={changeField('lastName')}
+                />
+            </div>
+            <div className="vr">
+                <TextField
+                    type="text"
+                    label="Position"
+                    fullWidth
+                    value={position}
+                    onChange={changeField('position')}
+                />
+            </div>
+
+            <Button
+                variant="contained"
+                color="primary"
+                fullWidth
+                onClick={saveNewEmployee}
+            >
+                Save
+            </Button>
+        </Paper>
+    );
 }
 
 export default connect(mapStoreToProps)(NewEmployee);
